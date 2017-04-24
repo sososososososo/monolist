@@ -6,12 +6,13 @@ class ItemsController < ApplicationController
 
     @keyword = params[:keyword]
     if @keyword
-      raise
+      
       results = RakutenWebService::Ichiba::Item.search({
         keyword: @keyword,
         imageFlag: 1,
         hits: 20,
       })
+      raise
 
       results.each do |result|
         item = Item.find_or_initialize_by(read(result))
