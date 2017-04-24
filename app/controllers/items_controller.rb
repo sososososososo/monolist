@@ -17,8 +17,6 @@ class ItemsController < ApplicationController
         item = Item.find_or_initialize_by(read(result))
         @items << item
       end
-      
-      raise
     end
   end
   
